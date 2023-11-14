@@ -6,8 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="641.0" prefWidth="919.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.GiftLabGuiController">
+<AnchorPane id="AnchorPane" fx:id="fondo2" prefHeight="641.0" prefWidth="919.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.GiftLabGuiController">
     <children>
         <BorderPane layoutX="360.0" layoutY="209.0" prefHeight="641.0" prefWidth="919.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -34,11 +35,20 @@
             <left>
                 <AnchorPane fx:id="paneSlide" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <VBox layoutX="50.0" layoutY="103.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox fx:id="vbox1" layoutX="50.0" layoutY="103.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="200.0" text="PC" />
-                                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Movil" />
-                                <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="200.0" text="Servicios" />
+                                <Button fx:id="btnPC" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="46.0" prefWidth="200.0" text="PC">
+                           <font>
+                              <Font name="Unispace-Bold" size="12.0" />
+                           </font></Button>
+                                <Button fx:id="btnMo" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Movil">
+                           <font>
+                              <Font name="Unispace-Bold" size="12.0" />
+                           </font></Button>
+                                <Button fx:id="btnSe" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="48.0" prefWidth="200.0" text="Servicios">
+                           <font>
+                              <Font name="Unispace-Bold" size="12.0" />
+                           </font></Button>
                             </children>
                         </VBox>
                     </children>
