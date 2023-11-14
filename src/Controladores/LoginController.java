@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -46,8 +47,8 @@ public class LoginController implements Initializable {
     private Stage stage;
 
     // Este método se llama para establecer la instancia de Stage
-    public void setPrimaryStage(Stage stage) {
-        this.stage = stage;
+    public void setPrimaryStage(Stage primaryStage) {
+        stage = primaryStage;
     }
 
     private ObservableList<Persona> ListaUsuarios;
@@ -71,19 +72,19 @@ public class LoginController implements Initializable {
 
     @FXML
     private void llamarGUI() throws IOException {
-        Stage Stage2 = new Stage();
-        FXMLLoader loader = new FXMLLoader();
-        AnchorPane root = (AnchorPane) loader.load(getClass().getResource("/giftlab/GiftLabGui.fxml").openStream());
-        GiftLabGuiController GuiControlerInstancia = (GiftLabGuiController) loader.getController();
-
-        stage.close();
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/giftlab/GiftLabGui.fxml"));
+        Parent root = loader.load();
+        GiftLabGuiController controller = loader.getController();
 
         Scene scene = new Scene(root);
-
+        Stage Stage2 = new Stage();
+        Stage2.setTitle("Tienda GiftLab");
+        Stage2.setResizable(false);
         Stage2.setScene(scene);
-        Stage2.centerOnScreen();
-        Stage2.initModality(Modality.APPLICATION_MODAL);
         Stage2.show();
+        Stage2.centerOnScreen();
+        this.stage.close();
     }
 
     private void ImagenBotones() {
