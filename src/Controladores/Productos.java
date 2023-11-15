@@ -4,6 +4,7 @@
  */
 package Controladores;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -15,13 +16,13 @@ public class Productos {
     String nombre;
     Integer cantidad;
     float precio;
-    Date Hora;
+    LocalDateTime Hora;
 
-    public Date getHora() {
+    public LocalDateTime getHora() {
         return Hora;
     }
 
-    public void setHora(Date Hora) {
+    public void setHora(LocalDateTime Hora) {
         this.Hora = Hora;
     }
     
@@ -49,7 +50,7 @@ public class Productos {
         this.precio = precio;
     }
   
-    public Productos(String nombre, Integer cantidad, float precio, Date Hora) {
+    public Productos(String nombre, Integer cantidad, float precio, LocalDateTime Hora) {
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;

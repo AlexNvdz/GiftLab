@@ -6,8 +6,11 @@ package Controladores;
 
 import javafx.scene.input.MouseEvent;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +18,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -31,6 +36,16 @@ import javafx.util.Duration;
  * @author Alex Nvdz
  */
 public class GiftLabGuiController implements Initializable {
+    
+    StackProductos pilaProductos = new StackProductos();
+    private ObservableList<Productos> ListaCarrito;
+    @FXML
+    private TableColumn<Productos, String> NombreP;
+    @FXML
+    private TableColumn<Productos, String> CantidadP;
+    @FXML
+    private TableColumn<Productos, String> PrecioP;
+  
     @FXML
     private AnchorPane zonaCarrito;
     @FXML
@@ -70,14 +85,34 @@ public class GiftLabGuiController implements Initializable {
     @FXML
     private ImageView menulogo;
     @FXML
-    private SpinnerValueFactory<Integer> spinner;
-    
+    private SpinnerValueFactory<Integer> spinner1;
+    @FXML
+    private SpinnerValueFactory<Integer> spinner2;
+    @FXML
+    private SpinnerValueFactory<Integer> spinner3;
+    @FXML
+    private SpinnerValueFactory<Integer> spinner4;
+    @FXML
+    private SpinnerValueFactory<Integer> spinner5;
+    @FXML
+    private SpinnerValueFactory<Integer> spinner6;
     
     @FXML
-    private TableColumn<?, ?> tablaCarrito;
+    private TableView<Productos> tablaCarrito;
             
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
+        NombreP.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        CantidadP.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        PrecioP.setCellValueFactory(new PropertyValueFactory<>("precio"));
+
+        // Inicializa la lista observable de productos
+        ListaCarrito = FXCollections.observableArrayList();
+
+        // Asocia la lista de productos a la tabla
+        tablaCarrito.setItems(ListaCarrito);
         // TODO
         logo.setVisible(true);
         zonaTienda.setVisible(false);
@@ -143,13 +178,19 @@ public class GiftLabGuiController implements Initializable {
                 + "-fx-border-color: purple;";
         btnHistorial.setStyle(estiloBoton2);
         
-        spinner = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 0);
-        spiner1.setValueFactory(spinner);
-        spiner2.setValueFactory(spinner);
-        spiner3.setValueFactory(spinner);
-        spiner4.setValueFactory(spinner);
-        spiner5.setValueFactory(spinner);
-        spiner6.setValueFactory(spinner);
+        spinner1 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 0);
+        spinner2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 0);
+        spinner3 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 0);
+        spinner4 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 0);
+        spinner5 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 0);
+        spinner6 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 0);
+        
+        spiner1.setValueFactory(spinner1);
+        spiner2.setValueFactory(spinner2);
+        spiner3.setValueFactory(spinner3);
+        spiner4.setValueFactory(spinner4);
+        spiner5.setValueFactory(spinner5);
+        spiner6.setValueFactory(spinner6);
     }
 
     @FXML
@@ -225,31 +266,55 @@ public class GiftLabGuiController implements Initializable {
     
        @FXML
     void add1(ActionEvent event) {
-
+         int precio = 10;
+         LocalDateTime fecha = LocalDateTime.now();
+         Productos producto = new Productos("Spotify Card 10$ USD", spiner1.getValue(), spiner1.getValue()*precio, fecha);
+            pilaProductos.setPushProducto(producto);
+            ListaCarrito.add(producto);
     }
 
     @FXML
     void add2(ActionEvent event) {
-
+        int precio = 10;
+        LocalDateTime fecha = LocalDateTime.now();
+        Productos producto = new Productos("Netflix Card 10$ USD", spiner2.getValue(), spiner2.getValue()*precio, fecha);
+        pilaProductos.setPushProducto(producto);
+        ListaCarrito.add(producto);
     }
 
     @FXML
     void add3(ActionEvent event) {
-
+        int precio = 10;
+        LocalDateTime fecha = LocalDateTime.now();
+        Productos producto = new Productos("Steam Card 10$ USD", spiner3.getValue(), spiner3.getValue()*precio, fecha);
+        pilaProductos.setPushProducto(producto);
+        ListaCarrito.add(producto);
     }
 
     @FXML
     void add4(ActionEvent event) {
-
+        int precio = 10;
+        LocalDateTime fecha = LocalDateTime.now();
+        Productos producto = new Productos("Crunchyroll Card 10$ USD", spiner4.getValue(), spiner4.getValue()*precio, fecha);
+        pilaProductos.setPushProducto(producto);
+        ListaCarrito.add(producto);
     }
 
     @FXML
     void add5(ActionEvent event) {
-
+        int precio = 25;
+        LocalDateTime fecha = LocalDateTime.now();
+        Productos producto = new Productos("Pubg Credit Card 25$ USD", spiner5.getValue(), spiner5.getValue()*precio, fecha);
+        pilaProductos.setPushProducto(producto);
+        ListaCarrito.add(producto);
     }
 
     @FXML
     void add6(ActionEvent event) {
-
+        int precio = 9;
+        LocalDateTime fecha = LocalDateTime.now();
+        Productos producto = new Productos("Free Fire Credit Card 9$ USD", spiner6.getValue(), spiner6.getValue()*precio, fecha);
+        pilaProductos.setPushProducto(producto);
+        ListaCarrito.add(producto);
     }
 }

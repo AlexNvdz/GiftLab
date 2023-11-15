@@ -66,11 +66,11 @@
                         <Image url="@../Img/Logo.png" />
                      </image>
                   </ImageView>
-                  <AnchorPane fx:id="zonaTienda" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.7999999999999545" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.7999999999999545" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="zonaTienda" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.7999999999999545" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.7999999999999545" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox layoutX="43.0" layoutY="151.0" prefHeight="26.0" prefWidth="108.0">
                            <children>
-                              <Spinner fx:id="spiner1" editable="true" prefHeight="26.0" prefWidth="63.0" />
+                              <Spinner fx:id="spiner1" prefHeight="26.0" prefWidth="63.0" />
                               <Button mnemonicParsing="false" onAction="#add1" text="Add">
                                  <font>
                                     <Font name="Unispace-Bold" size="12.0" />
@@ -93,7 +93,7 @@
                         </ImageView>
                         <HBox layoutX="321.0" layoutY="151.0" prefHeight="26.0" prefWidth="108.0">
                            <children>
-                              <Spinner fx:id="spiner2" editable="true" prefHeight="26.0" prefWidth="63.0" />
+                              <Spinner fx:id="spiner2" prefHeight="26.0" prefWidth="63.0" />
                               <Button mnemonicParsing="false" onAction="#add2" text="Add">
                                  <font>
                                     <Font name="Unispace-Bold" size="12.0" />
@@ -102,7 +102,7 @@
                         </HBox>
                         <HBox layoutX="576.0" layoutY="151.0" prefHeight="26.0" prefWidth="108.0">
                            <children>
-                              <Spinner fx:id="spiner3" editable="true" prefHeight="26.0" prefWidth="63.0" />
+                              <Spinner fx:id="spiner3" prefHeight="26.0" prefWidth="63.0" />
                               <Button mnemonicParsing="false" onAction="#add3" text="Add">
                                  <font>
                                     <Font name="Unispace-Bold" size="12.0" />
@@ -126,31 +126,31 @@
                         </ImageView>
                         <HBox layoutX="47.0" layoutY="353.0" prefHeight="26.0" prefWidth="108.0">
                            <children>
-                              <Spinner fx:id="spiner4" editable="true" prefHeight="26.0" prefWidth="63.0" />
+                              <Spinner fx:id="spiner4" prefHeight="26.0" prefWidth="63.0" />
                               <Button mnemonicParsing="false" onAction="#add4" text="Add" />
                            </children>
                         </HBox>
                         <HBox layoutX="321.0" layoutY="360.0" prefHeight="26.0" prefWidth="108.0">
                            <children>
-                              <Spinner fx:id="spiner5" editable="true" prefHeight="26.0" prefWidth="63.0" />
+                              <Spinner fx:id="spiner5" prefHeight="26.0" prefWidth="63.0" />
                               <Button mnemonicParsing="false" onAction="#add5" text="Add" />
                            </children>
                         </HBox>
                         <HBox layoutX="576.0" layoutY="360.0" prefHeight="26.0" prefWidth="108.0">
                            <children>
-                              <Spinner fx:id="spiner6" editable="true" prefHeight="26.0" prefWidth="63.0" />
+                              <Spinner fx:id="spiner6" prefHeight="26.0" prefWidth="63.0" />
                               <Button mnemonicParsing="false" onAction="#add6" text="Add" />
                            </children>
                         </HBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="zonaCarrito" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="zonaCarrito" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView layoutX="39.0" layoutY="32.0" prefHeight="284.0" prefWidth="634.0">
+                        <TableView fx:id="tablaCarrito" layoutX="39.0" layoutY="32.0" prefHeight="284.0" prefWidth="634.0">
                           <columns>
-                            <TableColumn prefWidth="170.4000244140625" text="PRODUCTO" />
-                            <TableColumn prefWidth="252.0" text="CANTIDAD" />
-                              <TableColumn fx:id="tablaCarrito" prefWidth="212.0" text="PRECIO" />
+                            <TableColumn fx:id="NombreP" prefWidth="170.4000244140625" text="PRODUCTO" />
+                            <TableColumn fx:id="CantidadP" prefWidth="252.0" text="CANTIDAD" />
+                              <TableColumn fx:id="PrecioP" prefWidth="212.0" text="PRECIO" />
                           </columns>
                         </TableView>
                      </children>
