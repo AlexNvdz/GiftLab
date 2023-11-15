@@ -30,6 +30,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
 import javafx.util.Duration;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,7 +46,9 @@ public class GiftLabGuiController implements Initializable {
     private TableColumn<Productos, String> CantidadP;
     @FXML
     private TableColumn<Productos, String> PrecioP;
-  
+    
+    @FXML
+    private AnchorPane zonaHistorial;
     @FXML
     private AnchorPane zonaCarrito;
     @FXML
@@ -115,6 +118,7 @@ public class GiftLabGuiController implements Initializable {
         tablaCarrito.setItems(ListaCarrito);
         // TODO
         logo.setVisible(true);
+        zonaHistorial.setVisible(false);
         zonaTienda.setVisible(false);
         zonaCarrito.setVisible(false);
         zonaMenu.setTranslateX(-90);
@@ -248,6 +252,7 @@ public class GiftLabGuiController implements Initializable {
         logo.setVisible(false);
         zonaTienda.setVisible(true);
         zonaCarrito.setVisible(false);
+        zonaHistorial.setVisible(false);
     }
 
     @FXML
@@ -255,6 +260,7 @@ public class GiftLabGuiController implements Initializable {
         logo.setVisible(true);
         zonaTienda.setVisible(false);
         zonaCarrito.setVisible(false);
+        zonaHistorial.setVisible(false);
     }
     
     @FXML
@@ -262,12 +268,22 @@ public class GiftLabGuiController implements Initializable {
         zonaCarrito.setVisible(true);
         zonaTienda.setVisible(false);
         logo.setVisible(false);
+        zonaHistorial.setVisible(false);
     }
+    
+    
     
        @FXML
     void add1(ActionEvent event) {
          int precio = 10;
          LocalDateTime fecha = LocalDateTime.now();
+          for (Productos producto : ListaCarrito) {
+            if (producto.getNombre().equals("Spotify Card 10$ USD") ) {
+                JOptionPane.showMessageDialog(null, "El Producto ya fue agregado al carrito!! "
+                        + "Eliminelo si desea hacer cambios.");
+                return;
+            }
+        }
          Productos producto = new Productos("Spotify Card 10$ USD", spiner1.getValue(), spiner1.getValue()*precio, fecha);
             pilaProductos.setPushProducto(producto);
             ListaCarrito.add(producto);
@@ -277,6 +293,13 @@ public class GiftLabGuiController implements Initializable {
     void add2(ActionEvent event) {
         int precio = 10;
         LocalDateTime fecha = LocalDateTime.now();
+        for (Productos producto : ListaCarrito) {
+            if (producto.getNombre().equals("Netflix Card 10$ USD") ) {
+                JOptionPane.showMessageDialog(null, "El Producto ya fue agregado al carrito!! "
+                        + "Eliminelo si desea hacer cambios.");
+                return;
+            }
+        }
         Productos producto = new Productos("Netflix Card 10$ USD", spiner2.getValue(), spiner2.getValue()*precio, fecha);
         pilaProductos.setPushProducto(producto);
         ListaCarrito.add(producto);
@@ -286,6 +309,13 @@ public class GiftLabGuiController implements Initializable {
     void add3(ActionEvent event) {
         int precio = 10;
         LocalDateTime fecha = LocalDateTime.now();
+        for (Productos producto : ListaCarrito) {
+            if (producto.getNombre().equals("Steam Card 10$ USD") ) {
+                JOptionPane.showMessageDialog(null, "El Producto ya fue agregado al carrito!! "
+                        + "Eliminelo si desea hacer cambios.");
+                return;
+            }
+        }
         Productos producto = new Productos("Steam Card 10$ USD", spiner3.getValue(), spiner3.getValue()*precio, fecha);
         pilaProductos.setPushProducto(producto);
         ListaCarrito.add(producto);
@@ -295,6 +325,13 @@ public class GiftLabGuiController implements Initializable {
     void add4(ActionEvent event) {
         int precio = 10;
         LocalDateTime fecha = LocalDateTime.now();
+         for (Productos producto : ListaCarrito) {
+            if (producto.getNombre().equals("Crunchyroll Card 10$ USD") ) {
+                JOptionPane.showMessageDialog(null, "El Producto ya fue agregado al carrito!! "
+                        + "Eliminelo si desea hacer cambios.");
+                return;
+            }
+        }
         Productos producto = new Productos("Crunchyroll Card 10$ USD", spiner4.getValue(), spiner4.getValue()*precio, fecha);
         pilaProductos.setPushProducto(producto);
         ListaCarrito.add(producto);
@@ -304,6 +341,13 @@ public class GiftLabGuiController implements Initializable {
     void add5(ActionEvent event) {
         int precio = 25;
         LocalDateTime fecha = LocalDateTime.now();
+        for (Productos producto : ListaCarrito) {
+            if (producto.getNombre().equals("Pubg Credit Card 25$ USD") ) {
+                JOptionPane.showMessageDialog(null, "El Producto ya fue agregado al carrito!! "
+                        + "Eliminelo si desea hacer cambios.");
+                return;
+            }
+        }
         Productos producto = new Productos("Pubg Credit Card 25$ USD", spiner5.getValue(), spiner5.getValue()*precio, fecha);
         pilaProductos.setPushProducto(producto);
         ListaCarrito.add(producto);
@@ -313,8 +357,33 @@ public class GiftLabGuiController implements Initializable {
     void add6(ActionEvent event) {
         int precio = 9;
         LocalDateTime fecha = LocalDateTime.now();
+         for (Productos producto : ListaCarrito) {
+            if (producto.getNombre().equals("Free Fire Credit Card 9$ USD") ) {
+                JOptionPane.showMessageDialog(null, "El Producto ya fue agregado al carrito!! "
+                        + "Eliminelo si desea hacer cambios.");
+                return;
+            }
+        }
         Productos producto = new Productos("Free Fire Credit Card 9$ USD", spiner6.getValue(), spiner6.getValue()*precio, fecha);
         pilaProductos.setPushProducto(producto);
         ListaCarrito.add(producto);
+    }
+    
+    @FXML
+    void eventoComprar(ActionEvent event) {
+        
+    }
+
+    @FXML
+    void eventoEliminar(ActionEvent event) {
+
+    }
+
+    @FXML
+    void eventoHistorial(ActionEvent event) {
+        logo.setVisible(false);
+        zonaTienda.setVisible(false);
+        zonaCarrito.setVisible(false);
+        zonaHistorial.setVisible(true);
     }
 }
