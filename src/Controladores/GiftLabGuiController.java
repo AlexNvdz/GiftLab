@@ -37,8 +37,8 @@ import javax.swing.JOptionPane;
  * @author Alex Nvdz
  */
 public class GiftLabGuiController implements Initializable {
-    
-    StackProductos pilaProductos = new StackProductos();
+    @FXML
+    private StackProductos pilaProductos = new StackProductos();
     private ObservableList<Productos> ListaCarrito;
     @FXML
     private TableColumn<Productos, String> NombreP;
@@ -46,6 +46,17 @@ public class GiftLabGuiController implements Initializable {
     private TableColumn<Productos, String> CantidadP;
     @FXML
     private TableColumn<Productos, String> PrecioP;
+    
+    
+    private ObservableList<Productos> ListaHistorial;
+    @FXML
+    private TableColumn<Productos, String> cNombre;
+    @FXML
+    private TableColumn<Productos, String> cCantidad;
+    @FXML
+    private TableColumn<Productos, String> cPrecio;
+    @FXML
+    private TableColumn<Productos, String> cHora;
     
     @FXML
     private AnchorPane zonaHistorial;
@@ -102,6 +113,8 @@ public class GiftLabGuiController implements Initializable {
     
     @FXML
     private TableView<Productos> tablaCarrito;
+    @FXML
+    private TableView<Productos> tablaHistorial;
             
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -110,12 +123,20 @@ public class GiftLabGuiController implements Initializable {
         NombreP.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         CantidadP.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
         PrecioP.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        
+        
+        cNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        cCantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        cPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        cHora.setCellValueFactory(new PropertyValueFactory<>("Hora"));
 
         // Inicializa la lista observable de productos
         ListaCarrito = FXCollections.observableArrayList();
+        ListaHistorial = FXCollections.observableArrayList();
 
         // Asocia la lista de productos a la tabla
         tablaCarrito.setItems(ListaCarrito);
+        tablaHistorial.setItems(ListaHistorial);
         // TODO
         logo.setVisible(true);
         zonaHistorial.setVisible(false);
@@ -371,8 +392,14 @@ public class GiftLabGuiController implements Initializable {
     
     @FXML
     void eventoComprar(ActionEvent event) {
-        
+        for (Productos producto : ListaCarrito) {
+            ListaHistorial.add(producto);
+            pilaProductos.setPopProducto();
+        }
+
+        ListaCarrito.clear();
     }
+    
 
     @FXML
     void eventoEliminar(ActionEvent event) {
