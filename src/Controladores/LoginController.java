@@ -71,11 +71,11 @@ public class LoginController implements Initializable {
 
     @FXML
     private void llamarGUI() throws IOException {
-        
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/giftlab/GiftLabGui.fxml"));
         Parent root = loader.load();
         GiftLabGuiController controller = loader.getController();
-        
+
         controller.mostrarinformacion(txtUsuario.getText());
         Scene scene = new Scene(root);
         Stage Stage2 = new Stage();
