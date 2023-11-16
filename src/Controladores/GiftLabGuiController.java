@@ -7,6 +7,7 @@ package Controladores;
 import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
@@ -26,6 +27,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
@@ -66,7 +68,9 @@ public class GiftLabGuiController implements Initializable {
     private TableColumn<Productos, String> cPrecio;
     @FXML
     private TableColumn<Productos, String> cHora;
-
+    
+    @FXML
+    private Label labelUsuario;
     @FXML
     private AnchorPane zonaHistorial;
     @FXML
@@ -416,6 +420,39 @@ public class GiftLabGuiController implements Initializable {
 
     @FXML
     void eventoComprar(ActionEvent event) {
+        // Crea el contenido de la factura
+        StringBuilder facturaContent = new StringBuilder();
+        facturaContent.append("FACTURA\n");
+        facturaContent.append("------------------------------\n");
+
+        for (Productos producto : ListaCarrito) {
+            facturaContent.append("Nombre: ").append(producto.getNombre()).append("\n");
+            facturaContent.append("Cantidad: ").append(producto.getCantidad()).append("\n");
+            facturaContent.append("Precio Unitario: ").append(producto.getPrecio()).append("\n");
+
+            facturaContent.append("------------------------------\n");
+        }
+
+        float totalAPagar = pilaProductos.getPrecioTotal();
+        facturaContent.append("Total a Pagar: ").append(String.format("%.2f", totalAPagar)).append("\n");
+        facturaContent.append("------------------------------\n");
+        facturaContent.append("¡Gracias por su compra!");
+        
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("Recibo de Pago");
+        alerta.setHeaderText(null);
+
+        // Configurar el área de texto para mostrar el recibo
+        TextArea areaTexto = new TextArea(facturaContent.toString());
+        areaTexto.setEditable(false);
+        areaTexto.setWrapText(true);
+
+        // Establecer el contenido personalizado del diálogo
+        alerta.getDialogPane().setContent(areaTexto);
+
+        // Mostrar la alerta
+        alerta.showAndWait();
+
         for (Productos producto : ListaCarrito) {
             ListaHistorial.add(producto);
             pilaProductos.setPopProducto();
@@ -427,23 +464,23 @@ public class GiftLabGuiController implements Initializable {
 
     @FXML
     void eventoEliminar(ActionEvent event) {
-        
+
         // Obtén el producto seleccionado en la tabla
-    Productos productoSeleccionado = tablaCarrito.getSelectionModel().getSelectedItem();
+        Productos productoSeleccionado = tablaCarrito.getSelectionModel().getSelectedItem();
 
-    if (productoSeleccionado == null) {
-        // Muestra un mensaje si no se selecciona un producto
-        mostrarAlerta("Eliminar Producto", "Por favor, selecciona un producto de la tabla.");
-        return;
-    }
+        if (productoSeleccionado == null) {
+            // Muestra un mensaje si no se selecciona un producto
+            mostrarAlerta("Eliminar Producto", "Por favor, selecciona un producto de la tabla.");
+            return;
+        }
 
-    // Muestra un diálogo de confirmación
-    if (confirmarEliminacion()) {
-        String productoAborrar = productoSeleccionado.getNombre();
-        // Elimina el producto de la lista observable
-        pilaProductos.setPopPorNombre(productoAborrar);
-        ListaCarrito.remove(productoSeleccionado);
-    }
+        // Muestra un diálogo de confirmación
+        if (confirmarEliminacion()) {
+            String productoAborrar = productoSeleccionado.getNombre();
+            // Elimina el producto de la lista observable
+            pilaProductos.setPopPorNombre(productoAborrar);
+            ListaCarrito.remove(productoSeleccionado);
+        }
 
         pilaProductos.mostrar();
 
@@ -467,15 +504,19 @@ public class GiftLabGuiController implements Initializable {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-    
+
     private boolean confirmarEliminacion() {
-    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-    alert.setTitle("Eliminar Producto");
-    alert.setHeaderText(null);
-    alert.setContentText("¿Estás seguro de que deseas eliminar este producto?");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Eliminar Producto");
+        alert.setHeaderText(null);
+        alert.setContentText("¿Estás seguro de que deseas eliminar este producto?");
 
-    Optional<ButtonType> result = alert.showAndWait();
-    return result.isPresent() && result.get() == ButtonType.OK;
-}
-
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.isPresent() && result.get() == ButtonType.OK;
+    }
+    
+    @FXML
+    void eventoCerrar(MouseEvent event) {
+        System.exit(0);
+    }
 }

@@ -22,6 +22,24 @@
             <top>
                 <AnchorPane prefHeight="52.0" prefWidth="926.0" style="-fx-background-color: purple;" BorderPane.alignment="CENTER">
                     <children>
+                  <HBox layoutX="713.0" layoutY="7.0" prefHeight="37.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Img/usua.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="labelUsuario" prefHeight="35.0" prefWidth="126.0" text="Label">
+                           <font>
+                              <Font name="Unispace-Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="45.0" fitWidth="38.0" onMouseClicked="#eventoCerrar" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Img/cerrarM.png" />
+                           </image>
+                        </ImageView>
+                     </children></HBox>
                         <ImageView fx:id="menu1" fitHeight="40.0" fitWidth="44.0" layoutX="7.0" layoutY="7.0" onMouseClicked="#run1" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Img/menubar2.png" />

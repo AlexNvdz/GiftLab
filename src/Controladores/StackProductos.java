@@ -45,6 +45,7 @@ public class StackProductos extends Stack<Productos>{
             }
         }
 
+    
         public void mostrar() {
             for (Productos producto : pilaProductos) {
                 System.out.println(producto.getNombre());
