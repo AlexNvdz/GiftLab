@@ -75,7 +75,8 @@ public class LoginController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/giftlab/GiftLabGui.fxml"));
         Parent root = loader.load();
         GiftLabGuiController controller = loader.getController();
-
+        
+        controller.mostrarinformacion(txtUsuario.getText());
         Scene scene = new Scene(root);
         Stage Stage2 = new Stage();
         Stage2.setTitle("Tienda GiftLab");

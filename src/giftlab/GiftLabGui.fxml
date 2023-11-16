@@ -24,7 +24,7 @@
                     <children>
                   <HBox layoutX="713.0" layoutY="7.0" prefHeight="37.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="35.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="36.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Img/usua.png" />
                            </image>
@@ -34,7 +34,7 @@
                               <Font name="Unispace-Bold" size="19.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="45.0" fitWidth="38.0" onMouseClicked="#eventoCerrar" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="42.0" fitWidth="37.0" onMouseClicked="#eventoCerrar" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Img/cerrarM.png" />
                            </image>
@@ -88,7 +88,7 @@
                         <Image url="@../Img/Logo.png" />
                      </image>
                   </ImageView>
-                  <AnchorPane fx:id="zonaTienda" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.7999999999999545" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.7999999999999545" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="zonaTienda" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.7999999999999545" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.7999999999999545" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox layoutX="47.0" layoutY="237.0" prefHeight="26.0" prefWidth="108.0">
                            <children>
@@ -149,19 +149,28 @@
                         <HBox layoutX="47.0" layoutY="447.0" prefHeight="26.0" prefWidth="108.0">
                            <children>
                               <Spinner fx:id="spiner4" prefHeight="26.0" prefWidth="63.0" />
-                              <Button mnemonicParsing="false" onAction="#add4" text="Add" />
+                              <Button mnemonicParsing="false" onAction="#add4" text="Add">
+                                 <font>
+                                    <Font name="Unispace-Bold" size="12.0" />
+                                 </font></Button>
                            </children>
                         </HBox>
                         <HBox layoutX="321.0" layoutY="447.0" prefHeight="26.0" prefWidth="108.0">
                            <children>
                               <Spinner fx:id="spiner5" prefHeight="26.0" prefWidth="63.0" />
-                              <Button mnemonicParsing="false" onAction="#add5" text="Add" />
+                              <Button mnemonicParsing="false" onAction="#add5" text="Add">
+                                 <font>
+                                    <Font name="Unispace-Bold" size="12.0" />
+                                 </font></Button>
                            </children>
                         </HBox>
                         <HBox layoutX="576.0" layoutY="447.0" prefHeight="26.0" prefWidth="108.0">
                            <children>
                               <Spinner fx:id="spiner6" prefHeight="26.0" prefWidth="63.0" />
-                              <Button mnemonicParsing="false" onAction="#add6" text="Add" />
+                              <Button mnemonicParsing="false" onAction="#add6" text="Add">
+                                 <font>
+                                    <Font name="Unispace-Bold" size="12.0" />
+                                 </font></Button>
                            </children>
                         </HBox>
                         <Label layoutX="24.0" layoutY="14.0" prefHeight="25.0" prefWidth="198.0" text="TIENDA">
@@ -187,7 +196,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="zonaCarrito" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="zonaCarrito" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TableView fx:id="tablaCarrito" layoutX="43.0" layoutY="112.0" prefHeight="284.0" prefWidth="634.0">
                           <columns>

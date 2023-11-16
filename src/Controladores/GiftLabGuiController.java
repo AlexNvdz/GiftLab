@@ -7,12 +7,9 @@ package Controladores;
 import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,7 +19,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableColumn;
@@ -46,7 +42,7 @@ import javax.swing.JOptionPane;
  * @author Alex Nvdz
  */
 public class GiftLabGuiController implements Initializable {
-
+    
     @FXML
     private StackProductos pilaProductos = new StackProductos();
     private ObservableList<Productos> ListaCarrito;
@@ -131,7 +127,7 @@ public class GiftLabGuiController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
         labelTotal.setText("0$");
 
         NombreP.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -156,7 +152,7 @@ public class GiftLabGuiController implements Initializable {
         zonaTienda.setVisible(false);
         zonaCarrito.setVisible(false);
         zonaMenu.setTranslateX(-90);
-        paneSlide.setTranslateX(-200);
+        paneSlide.setTranslateX(-300);
         menu1.setVisible(true);
         menu2.setVisible(false);
 
@@ -240,7 +236,7 @@ public class GiftLabGuiController implements Initializable {
         slide.setToX(0);
         slide.play();
 
-        paneSlide.setTranslateX(-200);
+        paneSlide.setTranslateX(-300);
         slide.setOnFinished((ActionEvent e) -> {
             menu1.setVisible(false);
             menu2.setVisible(true);
@@ -262,7 +258,7 @@ public class GiftLabGuiController implements Initializable {
         slide.setDuration(Duration.seconds(0.4));
         slide.setNode(paneSlide);
 
-        slide.setToX(-200);
+        slide.setToX(-300);
         slide.play();
 
         paneSlide.setTranslateX(0);
@@ -428,13 +424,13 @@ public class GiftLabGuiController implements Initializable {
         for (Productos producto : ListaCarrito) {
             facturaContent.append("Nombre: ").append(producto.getNombre()).append("\n");
             facturaContent.append("Cantidad: ").append(producto.getCantidad()).append("\n");
-            facturaContent.append("Precio Unitario: ").append(producto.getPrecio()).append("\n");
+            facturaContent.append("Precio: ").append(producto.getPrecio()).append("$").append("\n");
 
             facturaContent.append("------------------------------\n");
         }
 
         float totalAPagar = pilaProductos.getPrecioTotal();
-        facturaContent.append("Total a Pagar: ").append(String.format("%.2f", totalAPagar)).append("\n");
+        facturaContent.append("Total a Pagar: ").append(String.format("%.2f", totalAPagar)).append("$").append("\n");
         facturaContent.append("------------------------------\n");
         facturaContent.append("¡Gracias por su compra!");
         
@@ -518,5 +514,9 @@ public class GiftLabGuiController implements Initializable {
     @FXML
     void eventoCerrar(MouseEvent event) {
         System.exit(0);
+    }
+    
+    public void mostrarinformacion(String Usuario){
+        labelUsuario.setText(Usuario);
     }
 }
