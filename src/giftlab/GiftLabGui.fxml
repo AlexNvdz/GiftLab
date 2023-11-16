@@ -43,9 +43,9 @@
             <left>
                 <AnchorPane fx:id="paneSlide" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <VBox fx:id="vbox1" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.8000000000000114" AnchorPane.topAnchor="0.0">
+                        <VBox fx:id="vbox1" layoutY="4.0" prefHeight="585.0" prefWidth="199.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="4.0">
                             <children>
-                                <Button fx:id="btnTIenda" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#eventoTienda" prefHeight="46.0" prefWidth="199.0" text="TIENDA">
+                                <Button fx:id="btnTIenda" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#eventoTienda" prefHeight="49.0" prefWidth="199.0" text="TIENDA">
                            <font>
                               <Font name="Unispace-Bold" size="12.0" />
                            </font></Button>
@@ -53,7 +53,7 @@
                            <font>
                               <Font name="Unispace-Bold" size="12.0" />
                            </font></Button>
-                                <Button fx:id="btnHistorial" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#eventoHistorial" prefHeight="52.0" prefWidth="199.0" text="HISTORIAL">
+                                <Button fx:id="btnHistorial" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#eventoHistorial" prefHeight="52.0" prefWidth="200.0" text="HISTORIAL">
                            <font>
                               <Font name="Unispace-Bold" size="12.0" />
                            </font></Button>
@@ -209,57 +209,15 @@
                               <Font name="Unispace-Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Label layoutX="252.0" layoutY="417.0" text="TOTAL:">
+                        <Label layoutX="297.0" layoutY="417.0" text="TOTAL:" textFill="WHITE">
                            <font>
                               <Font name="Unispace-Bold" size="12.0" />
                            </font>
-                           <textFill>
-                              <RadialGradient centerX="0.5" centerY="0.6780302958054976" focusDistance="-0.7155963040273123" radius="0.47247709046810044">
-                                 <stops>
-                                    <Stop>
-                                       <color>
-                                          <Color red="1.0" green="1.0" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="0.017496635262449538">
-                                       <color>
-                                          <Color red="1.0" green="1.0" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="1.0">
-                                       <color>
-                                          <Color />
-                                       </color>
-                                    </Stop>
-                                 </stops>
-                              </RadialGradient>
-                           </textFill>
                         </Label>
-                        <Label layoutX="319.0" layoutY="417.0" prefHeight="16.0" prefWidth="145.0" text="TOTAL:">
+                        <Label fx:id="labelTotal" layoutX="360.0" layoutY="417.0" prefHeight="16.0" prefWidth="118.0" text="TOTAL:" textFill="WHITE">
                            <font>
                               <Font name="Unispace-Bold" size="12.0" />
                            </font>
-                           <textFill>
-                              <RadialGradient centerX="0.5" centerY="0.6780302958054976" focusDistance="-0.7155963040273123" radius="0.47247709046810044">
-                                 <stops>
-                                    <Stop>
-                                       <color>
-                                          <Color red="1.0" green="1.0" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="0.017496635262449538">
-                                       <color>
-                                          <Color red="1.0" green="1.0" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="1.0">
-                                       <color>
-                                          <Color />
-                                       </color>
-                                    </Stop>
-                                 </stops>
-                              </RadialGradient>
-                           </textFill>
                         </Label>
                      </children>
                   </AnchorPane>

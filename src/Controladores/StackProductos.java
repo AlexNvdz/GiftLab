@@ -29,42 +29,43 @@ public class StackProductos extends Stack<Productos>{
     }
 
     public void setPopPorNombre(String nombreProducto) {
-        // Creamos una pila temporal para almacenar los elementos que no coinciden con el nombre
-        Stack<Productos> pilaTemporal = new Stack<>();
+            Stack<Productos> tempStack = new Stack<>();
 
-        // Bandera para indicar si se encontró el producto
-        boolean encontrado = false;
+            while (!pilaProductos.isEmpty()) {
+                Productos pilaAuxiliar = pilaProductos.pop();
 
-        // Iteramos sobre la pila principal
-        while (!pilaProductos.isEmpty()) {
-            Productos productoActual = pilaProductos.pop();
+                if (pilaAuxiliar.getNombre() != nombreProducto) {
+                    tempStack.push(pilaAuxiliar);
+                }
+            }
 
-            // Verificamos si el nombre coincide
-            if (productoActual.getNombre().equals(nombreProducto)) {
-                // Se encontró el producto, establecemos la bandera a true
-                encontrado = true;
-                // Mensaje indicando que el producto se eliminó
-                JOptionPane.showMessageDialog(null, "Producto eliminado del carrito de compras: " + productoActual.getNombre());
-            } else {
-                // El nombre no coincide, agregamos el producto a la pila temporal
-                pilaTemporal.push(productoActual);
+            // Restaurar la pila original sin el nodo con el ID especificado
+            while (!tempStack.isEmpty()) {
+                pilaProductos.push(tempStack.pop());
             }
         }
 
-        // Volvemos a llenar la pila principal con los elementos que no coinciden con el nombre
-        while (!pilaTemporal.isEmpty()) {
-            pilaProductos.push(pilaTemporal.pop());
+        public void mostrar() {
+            for (Productos producto : pilaProductos) {
+                System.out.println(producto.getNombre());
+            }
         }
-
-        // Si no se encontró el producto, mostramos un mensaje indicando que no existe
-        if (!encontrado) {
-            JOptionPane.showMessageDialog(null, "Producto no encontrado en el carrito de compras");
-        }
-    }
+    
 
     public void setPopProducto() {
         if (!pilaProductos.empty()) {
             pilaProductos.pop();
         }
+    }
+    
+     public float getPrecioTotal() {
+        float suma = 0;
+        for (Productos producto : pilaProductos) {
+            // Supongamos que los objetos Producto tienen un atributo llamado "valor"
+            // que es un número que deseas sumar
+            double valorProducto = producto.precio;  // Obtén el valor del Producto
+            suma += valorProducto;  // Acumula el valor en la suma
+        }
+        return suma;
     }
 }
