@@ -189,7 +189,7 @@ public class LoginController implements Initializable {
 
     @FXML
     void eventoLogin(ActionEvent event) throws IOException {
-
+        
         if (ListaUsuarios.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Usuario no encontrado por favor Registrese!!");
             return;

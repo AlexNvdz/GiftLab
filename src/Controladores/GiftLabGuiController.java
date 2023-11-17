@@ -300,6 +300,14 @@ public class GiftLabGuiController implements Initializable {
         logo.setVisible(false);
         zonaHistorial.setVisible(false);
     }
+    
+    @FXML
+    void eventoHistorial(ActionEvent event) {
+        logo.setVisible(false);
+        zonaTienda.setVisible(false);
+        zonaCarrito.setVisible(false);
+        zonaHistorial.setVisible(true);
+    }
 
     @FXML
     void add1(ActionEvent event) {
@@ -483,14 +491,6 @@ public class GiftLabGuiController implements Initializable {
         String Total = String.valueOf(pilaProductos.getPrecioTotal());
         labelTotal.setText(Total + "$");
 
-    }
-
-    @FXML
-    void eventoHistorial(ActionEvent event) {
-        logo.setVisible(false);
-        zonaTienda.setVisible(false);
-        zonaCarrito.setVisible(false);
-        zonaHistorial.setVisible(true);
     }
 
     private void mostrarAlerta(String titulo, String mensaje) {
